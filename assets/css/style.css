@@ -1,0 +1,35 @@
+body{
+    background-image: url(../media/background/az_subtle.png);
+}
+.about{
+    background-image: url(../media/poster/about.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+.contact{
+    background-image: url(../media/poster/contact_us.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+.budget{
+    background-image: url(../media/poster/budget.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+.work{
+    background-image: url(../media/poster/work_us.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
