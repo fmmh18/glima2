@@ -14,7 +14,12 @@ class companyModel extends Model
         parent::__construct();
     }
 
-    public function listCompany()
+    public function companyList()
+    {
+        return companyModel::where('company_status','=',1)->first();
+    }
+
+    public function companyDetail()
     {
         return companyModel::where('company_status','=',1)->first();
     }

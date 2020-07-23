@@ -15,7 +15,10 @@
         "illuminate/events": "^7.14",
         "coffeecode/router": "^1.0",
         "league/plates": "^3.3",
-        "illuminate/pagination": "^7.17"
+        "illuminate/pagination": "^7.17",
+        "illuminate/http": "^7.20",
+        "illuminate/validation": "^7.20",
+        "illuminate/support": "^7.20"
     },
     "autoload": {
         "psr-4": {

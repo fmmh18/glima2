@@ -14,7 +14,7 @@
 </div>
 <div class="container pb-5 pt-3">
         <div class="col-md-12 col-12 pt-4"> 
-        <form action="contato" method="post">
+        <form action="contato" method="post" id="contact_form">
         <div class="col-auto">
         <div class="input-group mb-2">
             <div class="input-group-prepend">
@@ -70,4 +70,5 @@
 <?php include __DIR__  ."/include/address.php"; ?>
 <?php include __DIR__  ."/include/footer.php"; ?>
 <?php include __DIR__."/include/mask.php"; ?>
+<?php include __DIR__."/include/validate-contact.php"; ?>
 <?php include __DIR__  ."/include/message.php"; ?>

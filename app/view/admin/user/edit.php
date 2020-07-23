@@ -14,7 +14,7 @@
           <div class="col-md-12 col-12">
           <form action="<?php echo getenv('APP_HOST').'/admin/usuario/editar'; ?>" method="post">
           <input type="hidden" class="form-control" name="user_id" id="id" value="<?php echo $user[0]['user_id']; ?>">
-          <input type="hidden" class="form-control" name="user_curriculum1" id="id" value="<?php echo $user[0]['user_curriculum']; ?>">
+          <input type="hidden" class="form-control" name="user_curriculum_old" id="id" value="<?php echo $user[0]['user_curriculum']; ?>">
             <div class="row">
                <div class="col">
                <label for="name">Nome Completo</label>

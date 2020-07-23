@@ -17,10 +17,10 @@ class Index
         $page = $pages->detailPage('sobre');
 
         $companys = new companyModel();
-        $company = $companys->listCompany();
+        $company = $companys->companyDetail();
 
         $services = new serviceModel();
-        $service = $services->listAllService();
+        $service = $services->serviceListAll();
         
         $title = "GL Lima Terceirização & Serviços - Home";
         require __DIR__."/../view/home.php";
@@ -31,7 +31,7 @@ class Index
         $page = $pages->detailPage('sobre');
 
         $companys = new companyModel();
-        $company = $companys->listCompany();
+        $company = $companys->companyList();
 
         $title = "GL Lima Terceirização & Serviços - Empresa";
         require __DIR__."/../view/sobre.php";
@@ -39,7 +39,7 @@ class Index
     public function contact($data)
     {
         $companys = new companyModel();
-        $company = $companys->listCompany();
+        $company = $companys->companyList();
 
         if(!empty($data['message']))
         {
@@ -62,7 +62,7 @@ class Index
     public function work($data)
     {
         $companys = new companyModel();
-        $company = $companys->listCompany();
+        $company = $companys->companyList();
 
         if(!empty($data['message']))
         {
@@ -96,7 +96,7 @@ class Index
     public function budget($data)
     {
         $companys = new companyModel();
-        $company = $companys->listCompany();
+        $company = $companys->companyList();
 
         if(!empty($data['message']))
         {
@@ -119,7 +119,7 @@ class Index
     public function contactSend($data)
     {   
         $contacts = new contactModel();
-        $result   = $contacts->insertContact($data);
+        $result   = $contacts->contactInsert($data);
 
         if(!empty($result))
         {
@@ -133,7 +133,7 @@ class Index
     public function budgetSend($data)
     {   
         $budgets = new budgetModel();
-        $result   = $budgets->insertBudget($data);
+        $result   = $budgets->budgetInsert($data);
 
         if(!empty($result))
         {

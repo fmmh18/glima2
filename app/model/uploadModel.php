@@ -31,7 +31,12 @@ class uploadModel extends Model
 
     public function uploadUpdate($data)
     {
-        $upload = new uploadModel;
+        $upload = uploadModel::where('upload_id','=',$data['upload_id'])->update(['upload_oldname' => $data['upload_oldname'],
+        'upload_name' => $data['upload_name'],
+        'upload_size' => $data['upload_size'],
+        'updated_at' =>date('Y-m-d H:i:s')
+        ]);
+        return $upload;
 
 
     }

@@ -4,6 +4,8 @@
 
     use App\Model\userModel;
     use App\Model\logModel;
+    use App\Model\budgetModel;
+    use App\Model\contactModel;
     use App\Model\uploadModel;
 
 class User
@@ -44,6 +46,12 @@ class User
         {
                 $usuarios = new userModel();
                 $usuario = $usuarios->userAuthenticate($data);
+                $logs = new logModel;
+                $data = ['ip' => $_SERVER['REMOTE_ADDR'],
+                         'user' => $usuario[0]['user_id'],
+                         'page' => 'login'
+                ];
+                $logs->logCreate($data);
 
                 if(!empty($usuario))
                 {
@@ -62,6 +70,8 @@ class User
         session_start();
 
         $usuarios = new userModel();
+        $orcamentos = new budgetModel;
+        $budget = $orcamentos->budgetListAll();
 
         $usuario = $usuarios->userInfo($_SESSION['uID']); 
          
@@ -109,7 +119,7 @@ class User
 
         require __DIR__."/../view/admin/user/edit.php";
     }
-    public function userEdit($data)
+    public function userUpdate($data)
     {
         $uploaded = 1;
         $files = $_FILES;
@@ -119,6 +129,7 @@ class User
 
         if($files['user_curriculum']['error'] != 0)
         {
+            unlink($data['user_curriculum_old']);
             if(pathinfo($files['user_curriculum']['name'], PATHINFO_EXTENSION) != 'pdf' || pathinfo($files['user_curriculum']['name'], PATHINFO_EXTENSION) != 'doc' || pathinfo($files['user_curriculum']['name'], PATHINFO_EXTENSION) != 'docx')
             {
                 header('location: '.getenv("APP_HOST").'/admin/usuario/editar/'.$data["user_id"].'/arquivo-invalido');  
@@ -129,7 +140,7 @@ class User
                 {
                     $uploaded = 1;
                     $uploads = new uploadModel();
-                    $info = $uploads->uploadInsert($file);
+                    $info = $uploads->uploadUpdate($file);
                 }
                 else
                 {
@@ -172,7 +183,7 @@ class User
         }
             
     }
-    public function userFormAdd($data)
+    public function userCreate($data)
     {
         session_start();
 
@@ -203,7 +214,7 @@ class User
  
         require __DIR__."/../view/admin/user/add.php";
     }
-    public function userAdd($data)
+    public function userStore($data)
     {
         $uploaded = 1;
         $files = $_FILES;

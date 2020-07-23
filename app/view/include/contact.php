@@ -7,3 +7,7 @@
         </div>
     </div>
 </div>
+<div>
+<div><img src="<?php echo getenv('APP_HOST').'/assets/media/logo/logo.png'?>" style="position:absolute;z-index:9999;margin-top:4%;margin-left:1.5%" alt=""></div>
+
+ 

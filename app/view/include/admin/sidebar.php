@@ -7,7 +7,7 @@
               Dashboard <span class="sr-only">(current)</span>
             </a>
           </li> 
-          <?php if($usuario[0]['user_level'] == 1): ?>
+          <?php if($usuario['user_level'] == 1): ?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo getenv('APP_HOST').'/admin/usuario/listar/0'; ?>">
               <span class="fa fa-user"></span>
@@ -15,7 +15,7 @@
             </a>
           </li>
           <?php endif; ?>
-          <?php if($usuario[0]['user_level'] == 1): ?>
+          <?php if($usuario['user_level'] == 1): ?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo getenv('APP_HOST').'/admin/pagina/listar/0'; ?>">
               <span class="fa fa-file"></span>
@@ -29,6 +29,30 @@
               Vaga
             </a>
           </li>
+          <?php if($usuario['user_level'] == 1): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo getenv('APP_HOST').'/admin/contato/listar/0'; ?>">
+              <span class="fa fa-address-book"></span>
+              Contatos
+            </a>
+          </li>
+          <?php endif; ?>
+          <?php if($usuario['user_level'] == 1): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo getenv('APP_HOST').'/admin/orcamento/listar/0'; ?>">
+              <span class="fa fa-building"></span>
+              Orçamento
+            </a>
+          </li>
+          <?php endif; ?>
+          <?php if($usuario['user_level'] == 1): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo getenv('APP_HOST').'/admin/servico/listar/0'; ?>">
+              <span class="fa fa-eject"></span>
+              Serviço
+            </a>
+          </li>
+          <?php endif; ?>
         </ul>
       </div>
     </nav>

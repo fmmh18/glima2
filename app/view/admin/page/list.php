@@ -12,7 +12,7 @@
       </div>
       <div class="row">
           <div class="col-12 col-md-12 text-right">
-              <a href="<?php echo getenv('APP_HOST').'/admin/usuario/adicionar'; ?>" class="btn btn-success">Adicionar Usuário</a>
+              <a href="<?php echo getenv('APP_HOST').'/admin/pagina/adicionar'; ?>" class="btn btn-success">Adicionar Página</a>
           </div>
       </div>
       <div class="row mt-5">
@@ -22,20 +22,23 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col" colspan="2">Ações</th>
+                    <th scope="col">Conteudo</th>
+                    <th scope="col">Tag</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" colspan="2" width="1%">&nbsp;</th>
                 </tr>
               </thead>
-              <?php foreach($users as $user): ?>
-              <?php $user_id = $user["user_id"]; ?>
+              <?php foreach($pages as $page): ?>
+              <?php $page_id = $page["page_id"]; ?>
               <tbody>
                 <tr>
-                    <th scope="row"><?php echo $user['user_id']; ?></th>
-                    <td><?php echo $user['user_name']; ?></td>
-                    <td><?php echo $user['user_phone']; ?></td>
-                    <td><?php echo $user['user_mail']; ?></td>
-                    <td colspan="2"><a href="<?php echo getenv('APP_HOST')."/admin/usuario/editar/{$user_id}"; ?>"><i class="fa fa-2x fa-edit"></i></a>&nbsp;<a href="<?php echo getenv('APP_HOST')."/admin/usuario/apagar/{$user_id}"; ?>"><i class="fa fa-2x fa-trash"></i></a></td>
+                    <td scope="col"><?php echo $page['page_id']; ?></td>
+                    <td scope="col"><?php echo $page['page_name']; ?></td>
+                    <td scope="col"><?php echo $page['page_html']; ?></td>
+                    <td scope="col"><?php echo $page['page_tag']; ?></td>
+                    <td scope="col"><?php if($page['page_status'] == 1):  ?>Ativo<?php else: ?>Inativo<?php endif; ?></td>
+                    <td scope="col"><a href="<?php echo getenv('APP_HOST')."/admin/pagina/editar/{$page_id}"; ?>"><i class="fa fa-2x fa-edit"></i></a></td>
+                    <td scope="col"><a href="<?php echo getenv('APP_HOST')."/admin/pagina/deletar/{$page_id}"; ?>" data-confirm="Tem certeza de que deseja excluir o item selecionado?"><i class="fa fa-2x fa-trash"></i></a></td>
                 </tr>
               </tbody>
               <?php endforeach; ?>
@@ -47,16 +50,16 @@
               <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                   <li class="page-item">
-                    <a class="page-link" href="<?php echo getenv('APP_HOST').'/admin/usuario/listar/0'; ?>" aria-label="Previous">
+                    <a class="page-link" href="<?php echo getenv('APP_HOST').'/admin/pagina/listar/0'; ?>" aria-label="Previous">
                       <span aria-hidden="true">&laquo; primeiro</span>
                     </a>
                   </li>
-                  <?php for($i=0;$i < $users->total();$i++): ?>
-                  <li class="page-item"><a class="page-link"  href="<?php echo getenv('APP_HOST').'/admin/usuario/listar/'.$i; ?>"><?php echo $i+1; ?></a></li> 
+                  <?php for($i=0;$i < $pages->total()/15;$i++): ?>
+                  <li class="page-item"><a class="page-link"  href="<?php echo getenv('APP_HOST').'/admin/pagina/listar/'.$i; ?>"><?php echo $i+1; ?></a></li> 
                   <?php endfor; ?>
-                  <?php if($users->total() > 15): ?>
+                  <?php if($pages->total() > 15): ?>
                   <li class="page-item">
-                    <a class="page-link"  href="<?php echo getenv('APP_HOST').'/admin/usuario/listar/'.$users->total(); ?>" aria-label="Next">
+                    <a class="page-link"  href="<?php echo getenv('APP_HOST').'/admin/pagina/listar/'.$users->total(); ?>" aria-label="Next">
                       <span aria-hidden="true">último &raquo;</span>
                     </a>
                   </li>
@@ -69,5 +72,6 @@
     </main>
   </div>
 </div>
-<?php include_once  __DIR__."/../../include/footer.php"; ?>
+<?php include_once  __DIR__."/../../include/footer.php"; ?> 
+<?php include_once  __DIR__."/../../include/modal.php"; ?> 
 <?php include_once  __DIR__."/../../include/message.php"; ?>

@@ -6,13 +6,16 @@
 
 class logModel extends Model
 {
+    
+    protected $table = "log";
+
     public function __construct()
     {
         parent::__construct();
     }
-    public function saveLog($data)
+    public function logCreate($data)
     {
-        $log = new logModel();
+        $log = new logModel;
 
         $log->log_ip    = $data['ip'];
         $log->log_user  = $data['user'];

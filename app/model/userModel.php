@@ -32,7 +32,7 @@ class userModel extends Model
     }
     public function userInfo($data)
     {
-        $users = userModel::where('user_id','=',$data)->get();
+        $users = userModel::where('user_id','=',$data)->first();
         return $users;
     }
     public function userDelete($data)
@@ -65,7 +65,8 @@ class userModel extends Model
                           ->update(['user_name'=>$data['user_name'],'user_cpf'=>$data['user_cpf'],'user_date'=>$data['user_date'],
                           'user_phone'=>$data['user_phone'],'user_zipcode'=>$data['user_zipcode'],'user_address'=>$data['user_address'],
                           'user_complement'=>$data['user_complement'],'user_neighborhood'=>$data['user_neighborhood'],'user_city'=>$data['user_city'],
-                          'user_state'=>$data['user_state'],'user_state'=>$data['user_state'],'user_password'=>$data['user_password']]);
+                          'user_state'=>$data['user_state'],'user_state'=>$data['user_state'],'user_password'=>$data['user_password'],
+                          'updated_at' =>date('Y-m-d H:i:s')]);
 
         return $user;
     }

@@ -14,7 +14,7 @@
 </div>
 <div class="container pb-5 pt-3">
         <div class="col-md-12 col-12 pt-4"> 
-        <form action="trabalhe" method="post" enctype="multipart/form-data">
+        <form action="trabalhe" method="post" enctype="multipart/form-data" id="user_form">
         <div class="col-auto">
         <div class="input-group mb-2">
             <div class="input-group-prepend">
@@ -108,9 +108,10 @@
 </div>
 </div>
 </body>
-<?php include __DIR__."/include/map.php"; ?>
-<?php include __DIR__."/include/address.php"; ?>
-<?php include __DIR__."/include/footer.php"; ?>
-<?php include __DIR__."/include/mask.php"; ?>
-<?php include __DIR__."/include/cep.php"; ?>
-<?php include __DIR__  ."/include/message.php"; ?>
+<?php include __DIR__. "/include/map.php"; ?>
+<?php include __DIR__. "/include/address.php"; ?>
+<?php include __DIR__. "/include/footer.php"; ?>
+<?php include __DIR__. "/include/mask.php"; ?>
+<?php include __DIR__. "/include/validate-work.php"; ?> 
+<?php include __DIR__. "/include/cep.php"; ?>
+<?php include __DIR__. "/include/message.php"; ?>
