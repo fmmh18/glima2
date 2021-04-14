@@ -16,5 +16,6 @@
 
 
 /vendor/*
+.vscode
 
 .env

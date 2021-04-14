@@ -53,17 +53,17 @@ class Service
             else if($data['message'] == 'erro')
             {
                 $status['message'] = 'erro' ;
-                $message = "Opss! aconteceu algo que não previamos.";
+                $message = "Ops! aconteceu algo que não previamos.";
             }
             else if($data['message'] == 'arquivo-invalido')
             {
                 $status['message'] = 'arquivo-invalido' ;
-                $message = "Opss! aconteceu algo que não previamos. O arquivo é inválido";
+                $message = "Ops! aconteceu algo que não previamos. O arquivo é inválido";
             }
             else if($data['message'] == 'erro-upload')
             {
                 $status['message'] = 'erro-upload' ;
-                $message = "Opss! aconteceu algo que não previamos. Erro ao enviar o arquivo.";
+                $message = "Ops! aconteceu algo que não previamos. Erro ao enviar o arquivo.";
             }
         }
 

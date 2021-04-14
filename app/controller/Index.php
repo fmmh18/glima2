@@ -8,6 +8,7 @@
     use App\Model\contactModel;
     use App\Model\budgetModel;
     use App\Model\uploadModel;
+    use App\Model\imageModel;
 
 class Index
 {
@@ -29,6 +30,9 @@ class Index
     {
         $pages = new pageModel();
         $page = $pages->detailPage('sobre');
+
+        $images = new imageModel;
+        $datas = $images::where('image_gallery_id',1)->where('image_status',1)->get();
 
         $companys = new companyModel();
         $company = $companys->companyList();
